@@ -1,0 +1,129 @@
+DefaultController
+
+    /
+    homeAction()
+
+
+
+
+
+
+
+
+
+AdminController
+
+    /admin
+    backOfficeAction()
+
+    /admin/ajout/bd
+    addBdAction()
+
+    /admin/ajout/serie
+    addSerieAction()
+
+
+
+
+
+
+
+UserController
+
+    /login
+    loginAction()
+
+    /abonnement/inscription
+    registerAction()
+
+    /abonnement/choix-point-relais
+    chooseDropSpotAction()
+
+    /abonnement/choix-de-paiement
+    showSubsriptionPaymentFormAction()
+
+    /mot-de-passe-oublie/etape1
+    forgotPasswordStepOneAction()
+
+    /mot-de-passe-oublie/etape2/{email}/{token}
+    forgotPasswordStepTwoAction($email, $token)
+
+
+
+
+
+
+
+
+AccountController
+
+    /compte/{id}
+    homeAction($id)
+
+    /compte/{id}/modifier
+    editInfoAction($id)
+
+    /compte/{id}/modifier/mot-de-passe
+    editPasswordAction($id)
+
+    /compte/{id}/modifier/point-relais
+    editDropSpotAction($id)
+
+    /compte/{id}/historique
+    historyAction($id)
+
+    /compte/{id}/amende
+    showFinePaymentFormAction($id)
+
+    /compte/{id}/desabonnement
+    unsubscribeAction($id)
+
+    ##/compte/{id}/modifier/infos-paiement
+    ##changePaymentAction($id)
+
+
+
+
+
+
+PaymentController
+    
+    /paiement
+    takeSubscriptionPaymentAction()
+
+    /paiement/amende
+    takeFinePaymentAction()
+
+
+
+
+
+CartController
+
+    /panier/{id}/ajout/bd
+    addBookAction($id)
+
+    /panier/{id}/supprime/bd
+    removeBookAction($id)
+
+    /panier/{id}/
+    recapAction($id)
+
+    /panier/{id}/validation
+    validateAction($id)
+
+
+
+
+
+
+
+
+
+BookController
+    /catalogue/{filter1}...
+    catalogAction($filter1, $filter2..., $page...)
+
+    /catalogue/details/{id}
+    detailsAction($id)
+

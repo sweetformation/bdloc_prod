@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Bdloc !{% endblock %}</title>
+        {% block stylesheets %}
+            <!-- { % stylesheets 
+                'css/style.css' filter="cssrewrite" %}
+                <link rel="stylesheet" href="{ { asset_url }}">
+            { % endstylesheets %} -->
+            {# <link rel="stylesheet" type="text/css" href="{{ asset("css/bootstrap.css") }}"> #}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="{{ asset("css/style.css") }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('faviconBdloc.ico') }}" />
+    </head>
+    <body>
+        <div id="popup">
+            <div id="croixFermeture"><img src="{{ asset("img/appearances/croix_fermeture.png") }}" alt="" /></div>
+            <div id="popupContent"></div>
+        </div>
+        <div id="container">
+            {% include ':layouts:header.html.twig' %}
+            {% block sidebar %}{% endblock %}
+            <main id="main">
+                <div id="flash-messages">
+                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="flash-notice">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="flash-error">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+                </div>
+                {% block main_content %}{% endblock %}
+            </main>
+
+            <footer id="footer">
+                <div><strong>&copy; {{ "now"|date("Y") }}</strong> BDLOC. Tous droits réservés. | MC.</div>
+            </footer>
+        </div>
+        {% block javascripts %}
+            <!-- { % javascripts 
+                'js/jquery.js' output="main.js" filter="uglifyjs" %}
+                <script src="{ { asset_url }}"></script>
+            { % endjavascripts %} -->
+            <script src="{{ asset('js/jquery.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

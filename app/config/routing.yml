@@ -1,0 +1,40 @@
+bdloc_app:
+    resource: "@BdlocAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+bdloc_app_admin:
+    resource: "@BdlocAppBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin/
+
+bdloc_app_account:
+    resource: "@BdlocAppBundle/Controller/AccountController.php"
+    type:     annotation
+    prefix:   /compte/
+
+# bdloc_app_account:
+#     resource: "@BdlocAppBundle/Controller/PaymentController.php"
+#     type:     annotation
+#     prefix:   /paiement/
+
+bdloc_app_cart:
+    resource: "@BdlocAppBundle/Controller/CartController.php"
+    type:     annotation
+    prefix:   /panier/
+
+# bdloc_app_account:
+#     resource: "@BdlocAppBundle/Controller/BookController.php"
+#     type:     annotation
+#     prefix:   /catalogue/
+
+bdloc_app_cronjob:
+    resource: "@BdlocAppBundle/Controller/CronJobController.php"
+    type:     annotation
+    prefix:   /
+
+login_check:
+    path: /login_check
+logout:
+    path: /logout
+
